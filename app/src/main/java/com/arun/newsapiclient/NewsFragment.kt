@@ -58,7 +58,6 @@ class NewsFragment : Fragment() {
         viewModel.newsHeadLines.observe(viewLifecycleOwner,{response->
             when(response){
                is com.arun.newsapiclient.data.util.Resource.Success->{
-
                      hideProgressBar()
                      response.data?.let {
                          Log.i("MYTAG","came here ${it.articles.toList().size}")
@@ -71,11 +70,9 @@ class NewsFragment : Fragment() {
                        Toast.makeText(activity,"An error occurred : $it", Toast.LENGTH_LONG).show()
                    }
                 }
-
                 is com.arun.newsapiclient.data.util.Resource.Loading->{
                     showProgressBar()
                 }
-
             }
         })
     }
