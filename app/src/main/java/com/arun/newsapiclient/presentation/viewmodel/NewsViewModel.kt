@@ -21,12 +21,12 @@ class NewsViewModel(
 ) : AndroidViewModel(app) {
     val newsHeadLines: MutableLiveData<Resource<APIResponse>> = MutableLiveData()
 
-    fun getNewsHeadLines(country: String, page: Int) = viewModelScope.launch(Dispatchers.IO) {
+    fun getNewsHeadLines(country: String) = viewModelScope.launch(Dispatchers.IO) {
         newsHeadLines.postValue(Resource.Loading())
         try{
       if(isNetworkAvailable(app)) {
 
-          val apiResult = getNewsHeadlinesUseCase.execute(country, page)
+          val apiResult = getNewsHeadlinesUseCase.execute(country)
           newsHeadLines.postValue(apiResult)
       }else{
           newsHeadLines.postValue(Resource.Error("Internet is not available"))
