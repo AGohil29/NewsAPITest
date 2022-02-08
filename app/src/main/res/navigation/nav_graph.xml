@@ -15,15 +15,6 @@
             app:destination="@id/infoFragment" />
     </fragment>
     <fragment
-        android:id="@+id/savedFragment"
-        android:name="com.arun.newsapiclient.SavedFragment"
-        android:label="fragment_saved"
-        tools:layout="@layout/fragment_saved" >
-        <action
-            android:id="@+id/action_savedFragment_to_infoFragment"
-            app:destination="@id/infoFragment" />
-    </fragment>
-    <fragment
         android:id="@+id/infoFragment"
         android:name="com.arun.newsapiclient.InfoFragment"
         android:label="fragment_info"
@@ -31,5 +22,17 @@
         <argument
             android:name="selected_article"
             app:argType="com.arun.newsapiclient.data.model.Article" />
+        <action
+            android:id="@+id/action_infoFragment_to_webViewFragment"
+            app:destination="@id/webViewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/webViewFragment"
+        android:name="com.arun.newsapiclient.WebViewFragment"
+        android:label="fragment_web_view"
+        tools:layout="@layout/fragment_web_view" >
+        <argument
+            android:name="article_url"
+            app:argType="string"/>
     </fragment>
 </navigation>

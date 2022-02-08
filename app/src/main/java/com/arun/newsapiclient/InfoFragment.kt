@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebViewClient
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.arun.newsapiclient.databinding.FragmentInfoBinding
 import com.bumptech.glide.Glide
@@ -37,14 +38,14 @@ class InfoFragment : Fragment() {
             tvAuthor.text = article.author
             tvDate.text = article.publishedAt
             tvContent.text = article.content
-            ivWeblink.setOnClickListener{
-                wv_info.apply {
-                    visibility = View.VISIBLE
-                    webViewClient = WebViewClient()
-                    if(article.url!="") {
-                        loadUrl(article.url)
-                    }
+            ivWeblink.setOnClickListener {
+                val bundle = Bundle().apply {
+                    putString("article_url", article.url)
                 }
+                findNavController().navigate(
+                    R.id.action_infoFragment_to_webViewFragment,
+                    bundle
+                )
             }
         }
     }
