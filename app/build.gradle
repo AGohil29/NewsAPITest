@@ -12,7 +12,7 @@ android {
     buildToolsVersion "30.0.2"
 
     defaultConfig {
-        applicationId "com.anushka.newsapiclient"
+        applicationId "com.arun.newsapiclient"
         minSdkVersion 26
         targetSdkVersion 30
         versionCode 1
