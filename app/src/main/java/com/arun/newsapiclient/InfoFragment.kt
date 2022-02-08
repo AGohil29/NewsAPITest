@@ -25,7 +25,7 @@ class InfoFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         fragmentInfoBinding = FragmentInfoBinding.bind(view)
-        val args : InfoFragmentArgs by navArgs()
+        val args: InfoFragmentArgs by navArgs()
         val article = args.selectedArticle
 
         Glide.with(fragmentInfoBinding.ivArticleImage.context)
