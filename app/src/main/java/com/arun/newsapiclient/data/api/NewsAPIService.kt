@@ -1,6 +1,5 @@
 package com.arun.newsapiclient.data.api
 
-import com.arun.newsapiclient.BuildConfig
 import com.arun.newsapiclient.data.model.APIResponse
 import retrofit2.Response
 import retrofit2.http.GET

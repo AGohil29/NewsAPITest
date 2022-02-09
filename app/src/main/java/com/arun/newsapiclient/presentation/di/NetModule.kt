@@ -1,6 +1,5 @@
 package com.arun.newsapiclient.presentation.di
 
-import com.arun.newsapiclient.BuildConfig
 import com.arun.newsapiclient.data.api.NewsAPIService
 import dagger.Module
 import dagger.Provides

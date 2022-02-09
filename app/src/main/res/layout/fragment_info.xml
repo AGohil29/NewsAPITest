@@ -1,79 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".InfoFragment">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <ImageView
-        android:id="@+id/ivArticleImage"
+    <data>
+        <variable
+            name="article"
+            type="com.arun.newsapiclient.data.model.Article" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/margin_200dp"
-        android:scaleType="fitXY"
-        app:layout_constraintBottom_toTopOf="@id/tvTitle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="match_parent"
+        tools:context=".InfoFragment">
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/ivWeblink"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/margin_16dp"
-        android:src="@drawable/ic_baseline_link_24"
-        app:layout_constraintBottom_toTopOf="@id/tvTitle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ivArticleImage" />
+        <ImageView
+            android:id="@+id/ivArticleImage"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin_200dp"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toTopOf="@id/tvTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tvTitle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_16dp"
-        android:layout_marginTop="@dimen/margin_16dp"
-        android:layout_marginBottom="@dimen/margin_10dp"
-        android:ellipsize="end"
-        android:maxLines="2"
-        android:textColor="@color/black"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@id/ivWeblink"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ivArticleImage" />
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/ivWeblink"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_16dp"
+            android:src="@drawable/ic_baseline_link_24"
+            app:layout_constraintBottom_toTopOf="@id/tvTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivArticleImage" />
 
-    <TextView
-        android:id="@+id/tvAuthor"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_16dp"
-        android:layout_marginTop="@dimen/margin_16dp"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toStartOf="@id/tvDate"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_16dp"
+            android:layout_marginTop="@dimen/margin_16dp"
+            android:layout_marginBottom="@dimen/margin_10dp"
+            android:text="@{article.title}"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/ivWeblink"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivArticleImage" />
 
-    <TextView
-        android:id="@+id/tvDate"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/margin_16dp"
-        android:layout_marginTop="@dimen/margin_16dp"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/tvAuthor"
-        app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+        <TextView
+            android:id="@+id/tvAuthor"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_16dp"
+            android:layout_marginTop="@dimen/margin_16dp"
+            android:text="@{article.author}"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toStartOf="@id/tvDate"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle" />
 
-    <TextView
-        android:id="@+id/tvContent"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_16dp"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvAuthor"
-        app:layout_constraintVertical_bias=".05" />
+        <TextView
+            android:id="@+id/tvDate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_16dp"
+            android:layout_marginEnd="@dimen/margin_16dp"
+            android:text="@{article.publishedAt}"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvAuthor"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/tvContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_16dp"
+            android:text="@{article.content}"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvAuthor"
+            app:layout_constraintVertical_bias=".05" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

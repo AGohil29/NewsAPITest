@@ -32,21 +32,16 @@ class InfoFragment : Fragment() {
         Glide.with(fragmentInfoBinding.ivArticleImage.context)
             .load(article.urlToImage)
             .into(fragmentInfoBinding.ivArticleImage)
+        fragmentInfoBinding.article = article
 
-        fragmentInfoBinding.apply {
-            tvTitle.text = article.title
-            tvAuthor.text = article.author
-            tvDate.text = article.publishedAt
-            tvContent.text = article.content
-            ivWeblink.setOnClickListener {
-                val bundle = Bundle().apply {
-                    putString("article_url", article.url)
-                }
-                findNavController().navigate(
-                    R.id.action_infoFragment_to_webViewFragment,
-                    bundle
-                )
+        fragmentInfoBinding.ivWeblink.setOnClickListener {
+            val bundle = Bundle().apply {
+                putString("article_url", article.url)
             }
+            findNavController().navigate(
+                R.id.action_infoFragment_to_webViewFragment,
+                bundle
+            )
         }
     }
 }
