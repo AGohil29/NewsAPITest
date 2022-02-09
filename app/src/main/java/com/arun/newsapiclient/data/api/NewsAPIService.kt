@@ -12,7 +12,7 @@ interface NewsAPIService {
       @Query("country")
       country:String,
       @Query("apiKey")
-      apiKey:String = BuildConfig.API_KEY
+      apiKey:String = "2352d41b50804fcebefbbe2fde7d8b13"
   ): Response<APIResponse>
 
 }

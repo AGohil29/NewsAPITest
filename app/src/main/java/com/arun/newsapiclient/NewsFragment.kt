@@ -21,11 +21,6 @@ class NewsFragment : Fragment() {
     private lateinit var newsAdapter: NewsAdapter
     private lateinit var fragmentNewsBinding: FragmentNewsBinding
     private var country = "us"
-    private var page = 1
-    private var isScrolling = false
-    private var isLoading = false
-    private var isLastPage = false
-    private var pages = 0
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -87,12 +82,10 @@ class NewsFragment : Fragment() {
     }
 
     private fun showProgressBar(){
-        isLoading = true
         fragmentNewsBinding.progressBar.visibility = View.VISIBLE
     }
 
     private fun hideProgressBar(){
-        isLoading = false
         fragmentNewsBinding.progressBar.visibility = View.INVISIBLE
     }
 
