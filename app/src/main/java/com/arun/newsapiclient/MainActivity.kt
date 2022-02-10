@@ -1,15 +1,15 @@
 package com.arun.newsapiclient
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import com.arun.newsapiclient.databinding.ActivityMainBinding
 import com.arun.newsapiclient.presentation.adapter.NewsAdapter
 import com.arun.newsapiclient.presentation.viewmodel.NewsViewModel
 import com.arun.newsapiclient.presentation.viewmodel.NewsViewModelFactory
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -25,7 +25,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        fragment.findNavController()
+        val navHostFragment = supportFragmentManager
+            .findFragmentById(R.id.fragment) as NavHostFragment
+        navHostFragment.findNavController()
         viewModel = ViewModelProvider(this,factory)
             .get(NewsViewModel::class.java)
     }
